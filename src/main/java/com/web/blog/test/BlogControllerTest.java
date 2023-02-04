@@ -10,7 +10,16 @@ public class BlogControllerTest {
 	// 특정 애노테이션이 붙어 있는 클래스 파일들만 new해서(IoC)해서 스프링 컨테이너에 관리해준다.
 	@GetMapping("/test/hello")
 	public String hello() {
-		return "<h2>Hello Spring Boot!</h2>";
+		
+		int sum = 0;
+		for(int i=0; i<10; i++) {
+			sum += i;
+//			for(int j=0; j<10; j++) {
+//				
+//			}
+		}
+		String result = "It's "+sum;
+		return result;
 	}
 	
 }

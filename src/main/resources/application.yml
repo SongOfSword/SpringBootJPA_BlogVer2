@@ -24,7 +24,7 @@ spring:
     hibernate:
     #첫실행만 create, 두번째부터 update로 수정해야 한다. 아니면 매번 새로 만들어서 기존데이터 삭제됨.
     #create, update, none 세가지 항몽이 있다.
-      ddl-auto: create
+      ddl-auto: update
       #네이밍 항목에서
       naming:
         #PhysicalNamingStrategyStandardImpl은 Entity필드명 그대로 테이블에 칼럼 만들어 주고

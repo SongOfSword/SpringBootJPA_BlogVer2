@@ -14,5 +14,14 @@ import com.web.blog.model.User;
 // 스프링 레거시는 
 //@Repository 라고 애노테이션을 붙여 주어야 컴포넌트 스캔해서 메모리에 띄워주어 사용했는데 부트는 필요없이 자동으로 된다.
 public interface UserRepository extends JpaRepository<User, Integer>{
-	
+	// 로그인을 위한 쿼리 생성(두가지 방법)
+	// 1.
+	// JPA Naming Query(JPA네이밍 전략,아래처럼 선언을 해주면 쿼리를 알아서 생성해준다.)
+	// SELECT * FROM USER WHERE USERNAME = ? AND PASSWORD = ?;
+	// 앞에 User는 return타입.
+	User findByUsernameAndPassword(String username, String password);
+	// 2.
+	// JPA 네이티브 쿼리 생성전략
+//	@Query(value="SELECT * FROM USER WHERE USERNAME = ? AND PASSWORD = ?;", nativeQuery = true)
+//	User login(String username, String password);
 }

@@ -19,13 +19,6 @@
 	<dependencies>
 		
 		<!-- ライブラリー追加開始 -->
-		<!-- 시큐리티 태그 라이브러리 -->
-		<!--
-		<dependency>
-		  <groupId>org.springframework.security</groupId>
-		  <artifactId>spring-security-taglibs</artifactId>
-		</dependency>
-		-->
 		
 		<!-- JSP 템플릿 엔진 -->
 		<dependency>
@@ -35,11 +28,10 @@
 		
 		<!-- JSTL -->
 		<dependency>
-			<groupId>javax.servlet</groupId>
-			<artifactId>jsp-api</artifactId>
-			<version>2.0</version>
-			<scope>provided</scope>
+		    <groupId>org.glassfish.web</groupId>
+		    <artifactId>jakarta.servlet.jsp.jstl</artifactId>
 		</dependency>
+		
 		<!-- ライブラリー追加終了 -->
 		
 		<dependency>
@@ -47,12 +39,17 @@
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
 		</dependency>
 		
-		<!--
+		<!-- JSP에서 시큐리티를 사용하기 위한 태그 라이브러리 -->
+		<dependency>
+		  <groupId>org.springframework.security</groupId>
+		  <artifactId>spring-security-taglibs</artifactId>
+		</dependency>
+		
+		<!-- Security Starter 어디에서든 접속르 하려면 이 lib때문에 막히게 됨. login창 자동으로 띄움.-->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-security</artifactId>
 		</dependency>
-		-->
 		
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -82,7 +79,7 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-		<!--
+		<!-- 
 		<dependency>
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-test</artifactId>

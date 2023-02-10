@@ -9,9 +9,19 @@ let index = {
 		//	this.save(); // 위에 람다식을 사용하지 않으면 여기this는 window를 가리킨다. 밑에 코드처럼. 
 		//});            // 바인딩? 하기위해 람다식 사용. 자세한 이유는 나중에 공부하자.
 		// 람다식 사용하거나 or let self = this; 처럼 this를 변수에 넣어서 명시하거나
-		document.getElementById('btnSubmit').onclick = function(){
-			self.save();
-		};
+		let btnSubmit = document.getElementById('btnSubmit');
+		let btnLogin = document.getElementById('btnLogin');
+		if(btnSubmit){
+			btnSubmit.onclick = function(){
+				self.save();
+			}
+		}
+		
+		if(btnLogin){
+			btnLogin.onclick = function(){
+				self.login();
+			}
+		}
 	},
 	save : function(){
 		let data = {
@@ -21,15 +31,35 @@ let index = {
 		};
 	
 		let xhr = new XMLHttpRequest();
-		xhr.open("POST", "/blog/api/user", true);
+		xhr.open("POST", "/api/user", true);
 		xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
 		xhr.send(JSON.stringify(data));
 	
 		xhr.onreadystatechange = function(result) {
 			if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
 				alert("회원가입이 완료되었습니다.");
-				console.log(result);
-				//location.href = "/blog";
+				location.href = "/";
+			} else if (xhr.readyState === XMLHttpRequest.DONE) {
+				console.error(xhr.responseText);
+			}
+		};
+	},
+	
+	login : function(){
+		let data = {
+			username : document.getElementById("username").value,
+			password : document.getElementById("pwd").value
+		};
+	
+		let xhr = new XMLHttpRequest();
+		xhr.open("POST", "/api/user/login", true);
+		xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+		xhr.send(JSON.stringify(data));
+
+		xhr.onreadystatechange = function(result) {
+			if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+				alert("로그인이 완료되었습니다.");
+				location.href = "/";
 			} else if (xhr.readyState === XMLHttpRequest.DONE) {
 				console.error(xhr.responseText);
 			}

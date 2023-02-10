@@ -34,7 +34,7 @@
     </div>
     <!-- 스프링은 기본적으로 static폴더(정적파일)를 스캔하기 때문에, /하면 static폴더 찾음 -->
     <!-- js와 연동 되도록 script로 명시를 해줌 -->
-    <script src="/blog/js/user/user.js"></script>
+    <script src="/js/user/user.js"></script>
     <%@ include file="../layout/footer.jsp" %>
 </body>
 

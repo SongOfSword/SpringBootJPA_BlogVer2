@@ -8,6 +8,6 @@ public class BoardController {
 	
 	@GetMapping("/")
 	public String index() {
-		return "index"; // yml에 prefix,suffix 설정 했기에 이렇게 가능.
+		return "index"; //yml에 prefix,suffix 설정 했기에 이렇게 가능.
 	}
 }

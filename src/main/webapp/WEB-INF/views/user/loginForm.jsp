@@ -14,10 +14,10 @@
 <body>
     <br>
     <div class="container">
-        <form action="/action_page.php">
+        <form>
             <div class="mb-3 mt-3">
-                <label for="email" class="form-label">Email:</label>
-                <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+                <label for="username" class="form-label">UserName:</label>
+                <input type="text" class="form-control" id="username" placeholder="Enter username" name="username">
             </div>
             <div class="mb-3">
                 <label for="pwd" class="form-label">Password:</label>
@@ -28,9 +28,10 @@
                     <input class="form-check-input" type="checkbox" name="remember"> Remember me
                 </label>
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
         </form>
+        <button id="btnLogin" class="btn btn-primary" >Login</button>
     </div>
+    <script src="/js/user/user.js"></script>
     <%@ include file="../layout/footer.jsp" %>
 </body>
 
